@@ -8,8 +8,9 @@ using Project.Manager;
 
 namespace Project.Controller
 {
-    [Microsoft.AspNetCore.Components.Route("api/[controller]")]
+    [Route("api/[controller]")]
     public class TodoController : ControllerBase
+    
     {
         private readonly TodoTaskManager _todoTaskManager;
 
@@ -30,7 +31,8 @@ namespace Project.Controller
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Todo>>> GetAllTodos()
         {
-            return await _todoTaskManager.GetAllTodos();
+            var todos = await _todoTaskManager.GetAllTodos();
+            return Ok(todos);
         }
 
         // Get a Task by Id

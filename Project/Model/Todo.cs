@@ -11,7 +11,6 @@ namespace Model
         public string Title {get; set;}
         public string description {get; set;}
         public DateTime CreatedAt {get; set;}
-        // Add DueDate property
         public DateTime DueDate {get; set;}
     }
 }

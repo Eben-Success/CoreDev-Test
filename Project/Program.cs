@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Project.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,8 +14,11 @@ var app = builder.Build();
 // connect to postgres database
 var connectionString = app.Configuration.GetConnectionString("DefaultConnection");
 
+// register the todo app here
+app.MapControllers();
+
 // register appdbcontext
-app.Services.AddDbContext<AppDbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
 // Configure the HTTP request pipeline.

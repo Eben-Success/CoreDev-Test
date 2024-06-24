@@ -2,20 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Model;
 using Project.Data;
 
 
 namespace Project.Manager
 {
-
-    private readonly AppDbContext _context;
     public class TodoTaskManager
     {
+        private readonly AppDbContext _context;
 
         public TodoTaskManager(AppDbContext context)
         {
-            _context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
         
         // Get all Todos
@@ -45,7 +45,7 @@ namespace Project.Manager
                 return null;
             }
             oldTodo.Title = todo.Title;
-            oldTodo.Description = todo.Description;
+            oldTodo.description = todo.description;
             oldTodo.DueDate = todo.DueDate;
             await _context.SaveChangesAsync();
             return oldTodo;
