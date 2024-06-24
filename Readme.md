@@ -4,7 +4,7 @@ A simple todo app using ASP.NET Core
 ## Database
 - Postgres
 
-## Functinality
+## Functionality
 - Create new todo
 - Delete todo
 - Update todo
