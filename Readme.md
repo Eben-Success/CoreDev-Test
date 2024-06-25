@@ -13,8 +13,6 @@ A simple todo app using ASP.NET Core
 
 ## Dependencies
 - Npgsql.EntityFrameworkCore.PostgreSQL
-- Microsoft.EntityFrameworkCore.Design
-- Microsoft.EntityFrameworkCore.Tools
 
 ## How to run
 - Clone the repository
